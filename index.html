@@ -153,6 +153,12 @@ Copyright (c) 2024-2026 FlorianMichael/EnZaXD <git@florianmichael.de>
             box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
         }
 
+        a.gitlab:hover {
+            background: #FC6D26;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(252, 109, 38, 0.4);
+        }
+
         a.email:hover {
             background: #0078d7;
             color: #fff;
@@ -207,24 +213,49 @@ Copyright (c) 2024-2026 FlorianMichael/EnZaXD <git@florianmichael.de>
             background-color: #1e90ff;
             color: #fff;
         }
+
+        .profile-desc {
+            margin: -10px 0 20px 0;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+        .profile-desc a {
+            color: #7dbdff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        .profile-desc a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 6px rgba(30, 144, 255, 0.6);
+        }
     </style>
 </head>
 <body>
 
 <img src="avatar.webp" alt="Profile Picture" class="profile-pic" fetchpriority="high">
 <h1 class="username">FlorianMichael</h1>
+<p class="profile-desc">
+    Software Engineer
+    <a href="https://github.com/iwmedia" target="_blank">@iwmedia</a>,
+    Core developer
+    <a href="https://github.com/ViaVersion" target="_blank">@ViaVersion</a>,
+    High school student
+</p>
 
 <div class="card-container">
     <a href="https://github.com/FlorianMichael" class="card github" target="_blank" title="GitHub"><i
-            class="fab fa-github"></i></a>
+        class="fab fa-github"></i></a>
     <a href="https://florianmichael.de/discord" class="card discord" target="_blank" title="Discord"><i
-            class="fab fa-discord"></i></a>
+        class="fab fa-discord"></i></a>
     <a href="https://bsky.app/profile/florianmichael.de" class="card bluesky" target="_blank" title="Bluesky"><i
-            class="fas fa-cloud"></i></a>
+        class="fas fa-cloud"></i></a>
     <a href="https://x.com/enzaxd" class="card twitter" target="_blank" title="Twitter"><i
-            class="fab fa-twitter"></i></a>
-    <a href="https://www.youtube.com/@FlorianMichael" class="card youtube" target="_blank" title="YouTube"><i
-            class="fab fa-youtube"></i></a>
+        class="fab fa-twitter"></i></a>
+    <a href="https://gitlab.com/FlorianMichael" class="card gitlab" target="_blank" title="GitLab">
+        <i class="fab fa-gitlab"></i></a>
     <a href="mailto:contact@florianmichael.de" class="card email" title="Email"><i class="fas fa-envelope"></i></a>
 </div>
 
