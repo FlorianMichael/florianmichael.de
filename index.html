@@ -30,220 +30,204 @@ Copyright (c) 2024-2026 FlorianMichael/EnZaXD <git@florianmichael.de>
           content="Check out my GitHub, social profiles, and support my work via PayPal, Ko-Fi, or GitHub Sponsors.">
     <meta name="twitter:image" content="https://florianmichael.de/avatar.webp">
     <meta name="twitter:site" content="@enzaxd">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        html, body {
-            height: 100%;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            overflow-x: hidden;
+        }
+
+        html, body {
+            height: 100%;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #121212;
+            background: #0a0a0f;
             color: #e0e0e0;
-            padding: 20px;
+            padding: 24px;
+            min-height: 100vh;
         }
 
-        img.profile-pic {
-            width: 130px;
-            height: 130px;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 2px solid #444;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
+            border: 3px solid rgba(99, 102, 241, 0.5);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        img.profile-pic:hover {
+        .profile-pic:hover {
             transform: scale(1.05);
+            border-color: rgba(99, 102, 241, 0.8);
         }
 
-        h1.username {
-            margin: 0 0 20px 0;
-            font-size: 2rem;
+        .username {
+            font-size: 1.75rem;
+            font-weight: 600;
             color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #888;
+            font-size: 0.95rem;
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s ease;
+        }
+
+        .github-link:hover {
+            color: #fff;
+        }
+
+        .donate-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
         .card-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px;
-            margin-bottom: 20px;
-        }
-
-        .card, .donation-card {
-            display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            border: 1px solid #333;
-            color: #e0e0e0;
-            text-decoration: none;
-            transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
-        }
-
-        .card {
-            width: 45px;
-            height: 45px;
-            font-size: 1.4rem;
+            gap: 12px;
         }
 
         .donation-card {
-            width: 70px;
-            height: 70px;
-            font-size: 2rem;
-        }
-
-        .card span.label, .donation-card span.label {
-            display: block;
-            margin-top: 4px;
-            color: #ccc;
-        }
-
-        .card span.label {
-            font-size: 0.65rem;
-        }
-
-        .donation-card span.label {
-            font-size: 0.85rem;
-        }
-
-        .card:hover, .donation-card:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        a.github:hover {
-            background: #6e5494;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(110, 84, 148, 0.4);
-        }
-
-        a.discord:hover {
-            background: #5865F2;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-        }
-
-        a.bluesky:hover {
-            background: #00acee;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 172, 238, 0.4);
-        }
-
-        a.twitter:hover {
-            background: #1DA1F2;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(29, 161, 242, 0.4);
-        }
-
-        a.gitlab:hover {
-            background: #FC6D26;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(252, 109, 38, 0.4);
-        }
-
-        a.email:hover {
-            background: #0078d7;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 120, 215, 0.4);
-        }
-
-        a.paypal:hover {
-            background: #003087;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 48, 135, 0.4);
-        }
-
-        a.kofi:hover {
-            background: #29abe0;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(41, 171, 224, 0.4);
-        }
-
-        a.sponsor:hover {
-            background: #EA4AAA;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(234, 74, 170, 0.4);
-        }
-
-        .donate-text {
-            margin: 15px 0 10px 0;
-            font-size: 1rem;
-            color: #ccc;
-            max-width: 400px;
-        }
-
-        .profile-desc {
-            margin: -10px 0 20px 0;
-            font-size: 0.95rem;
-            color: #b0b0b0;
-        }
-
-        .profile-desc a {
-            color: #7dbdff;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: #e0e0e0;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s, text-shadow 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .profile-desc a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 6px rgba(30, 144, 255, 0.6);
+        .donation-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .donation-card i {
+            font-size: 1.4rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .donation-card .label {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .donation-card.paypal i {
+            color: #00457C;
+        }
+
+        .donation-card.kofi i {
+            color: #FF5E5B;
+        }
+
+        .donation-card.sponsor i {
+            color: #DB61A2;
+        }
+
+        .donation-card.paypal:hover {
+            border-color: rgba(0, 69, 124, 0.5);
+        }
+
+        .donation-card.kofi:hover {
+            border-color: rgba(255, 94, 91, 0.5);
+        }
+
+        .donation-card.sponsor:hover {
+            border-color: rgba(219, 97, 162, 0.5);
+        }
+
+        .footer {
+            margin-top: 48px;
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        .footer a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-<img src="avatar.webp" alt="Profile Picture" class="profile-pic" fetchpriority="high">
-<h1 class="username">FlorianMichael</h1>
-<p class="profile-desc">
-    Software Engineer
-    <a href="https://github.com/iwmedia" target="_blank">@iwmedia</a>,
-    Core developer
-    <a href="https://github.com/ViaVersion" target="_blank">@ViaVersion</a>,
-    High school student
-</p>
+<div class="container">
+    <img src="avatar.webp" alt="FlorianMichael" class="profile-pic" fetchpriority="high">
+    <h1 class="username">FlorianMichael</h1>
+    <a href="https://github.com/FlorianMichael" target="_blank" class="github-link">
+        <i class="fab fa-github"></i> @FlorianMichael
+    </a>
 
-<div class="card-container">
-    <a href="https://github.com/FlorianMichael" class="card github" target="_blank" title="GitHub"><i
-        class="fab fa-github"></i></a>
-    <a href="https://florianmichael.de/discord" class="card discord" target="_blank" title="Discord"><i
-        class="fab fa-discord"></i></a>
-    <a href="https://bsky.app/profile/florianmichael.de" class="card bluesky" target="_blank" title="Bluesky"><i
-        class="fas fa-cloud"></i></a>
-    <a href="https://x.com/enzaxd" class="card twitter" target="_blank" title="Twitter"><i
-        class="fab fa-twitter"></i></a>
-    <a href="https://gitlab.com/FlorianMichael" class="card gitlab" target="_blank" title="GitLab">
-        <i class="fab fa-gitlab"></i></a>
-    <a href="mailto:contact@florianmichael.de" class="card email" title="Email"><i class="fas fa-envelope"></i></a>
-</div>
+    <p class="donate-text">Support my work</p>
 
-<p class="donate-text">Support my work via</p>
-<div class="card-container">
-    <a href="https://www.paypal.com/donate/?hosted_button_id=9RJRFKZQ2JTZS" class="donation-card paypal"
-       target="_blank">
-        <i class="fab fa-paypal"></i>
-        <span class="label">PayPal</span>
-    </a>
-    <a href="https://ko-fi.com/florianmichael" class="donation-card kofi" target="_blank">
-        <i class="fas fa-mug-hot"></i>
-        <span class="label">Ko-Fi</span>
-    </a>
-    <a href="https://github.com/sponsors/FlorianMichael" class="donation-card sponsor" target="_blank">
-        <i class="fas fa-heart"></i>
-        <span class="label">GitHub</span>
-    </a>
+    <div class="card-container">
+        <a href="https://github.com/sponsors/FlorianMichael" class="donation-card sponsor" target="_blank">
+            <i class="fas fa-heart"></i>
+            <span class="label">GitHub Sponsors</span>
+        </a>
+        <a href="https://ko-fi.com/florianmichael" class="donation-card kofi" target="_blank">
+            <i class="fas fa-mug-hot"></i>
+            <span class="label">Ko-fi</span>
+        </a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=9RJRFKZQ2JTZS" class="donation-card paypal"
+           target="_blank">
+            <i class="fab fa-paypal"></i>
+            <span class="label">PayPal</span>
+        </a>
+    </div>
+
+    <p class="footer">
+        © 2024-2026 · <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+    </p>
 </div>
 
 </body>
