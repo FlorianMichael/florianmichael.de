@@ -4,32 +4,25 @@ See the LICENSE file in the project root for details.
 
 Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Me</title>
-    <meta name="description"
-          content="Florian Reuth - Developer, content creator, and online profile showcasing GitHub, social media, and donation links.">
-    <meta name="keywords" content="Florian Reuth, GitHub, developer, content creator, social media, donations">
+    <title>Florian Reuth</title>
+    <meta name="description" content="Florian Reuth - Java & Kotlin Developer from Germany">
     <meta name="author" content="Florian Reuth">
 
-    <meta property="og:title" content="Florian Reuth - My Profile">
-    <meta property="og:description"
-          content="Check out my GitHub, social profiles, and support my work via PayPal, Ko-Fi, or GitHub Sponsors.">
+    <meta property="og:title" content="Florian Reuth">
+    <meta property="og:description" content="Java & Kotlin Developer · Student · Germany">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://florianreuth.de/">
     <meta property="og:image" content="https://florianreuth.de/avatar.jpeg">
-    <meta property="og:image:alt" content="florianreuth Profile Picture">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Florian Reuth - My Profile">
-    <meta name="twitter:description"
-          content="Check out my GitHub, social profiles, and support my work via PayPal, Ko-Fi, or GitHub Sponsors.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Florian Reuth">
+    <meta name="twitter:description" content="Java & Kotlin Developer · Student · Germany">
     <meta name="twitter:image" content="https://florianreuth.de/avatar.jpeg">
-    <meta name="twitter:site" content="@florianreuth">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,30 +36,21 @@ Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            min-height: 100vh;
             background: #0a0a0f;
             color: #e0e0e0;
             padding: 24px;
-            min-height: 100vh;
         }
 
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
             radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
             z-index: -1;
@@ -75,6 +59,7 @@ Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
         .container {
             max-width: 400px;
             width: 100%;
+            text-align: center;
         }
 
         .profile-pic {
@@ -83,7 +68,7 @@ Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
             border-radius: 50%;
             border: 3px solid rgba(99, 102, 241, 0.5);
             margin-bottom: 20px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .profile-pic:hover {
@@ -91,44 +76,64 @@ Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
             border-color: rgba(99, 102, 241, 0.8);
         }
 
-        .username {
+        h1 {
             font-size: 1.75rem;
             font-weight: 600;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .bio {
             color: #888;
             font-size: 0.95rem;
-            text-decoration: none;
-            margin-bottom: 32px;
-            transition: color 0.2s ease;
+            margin-bottom: 28px;
         }
 
-        .github-link:hover {
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #888;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
             color: #fff;
         }
 
-        .donate-text {
+        .section-title {
             font-size: 0.9rem;
             color: #666;
-            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 500;
+            margin-bottom: 20px;
         }
 
-        .card-container {
+        .cards {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .donation-card {
+        .card {
             display: flex;
             align-items: center;
             gap: 14px;
@@ -138,96 +143,97 @@ Copyright (c) 2024-2026 Florian Reuth <git@florianreuth.de>
             border-radius: 12px;
             color: #e0e0e0;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
 
-        .donation-card:hover {
+        .card:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.15);
         }
 
-        .donation-card i {
+        .card i {
             font-size: 1.4rem;
             width: 28px;
             text-align: center;
         }
 
-        .donation-card .label {
+        .card span {
             font-size: 1rem;
             font-weight: 500;
         }
 
-        .donation-card.paypal i {
-            color: #00457C;
-        }
-
-        .donation-card.kofi i {
-            color: #FF5E5B;
-        }
-
-        .donation-card.sponsor i {
+        .card.sponsor i {
             color: #DB61A2;
         }
 
-        .donation-card.paypal:hover {
-            border-color: rgba(0, 69, 124, 0.5);
-        }
-
-        .donation-card.kofi:hover {
-            border-color: rgba(255, 94, 91, 0.5);
-        }
-
-        .donation-card.sponsor:hover {
+        .card.sponsor:hover {
             border-color: rgba(219, 97, 162, 0.5);
         }
 
-        .footer {
+        .card.kofi i {
+            color: #FF5E5B;
+        }
+
+        .card.kofi:hover {
+            border-color: rgba(255, 94, 91, 0.5);
+        }
+
+        .card.paypal i {
+            color: #00457C;
+        }
+
+        .card.paypal:hover {
+            border-color: rgba(0, 69, 124, 0.5);
+        }
+
+        footer {
             margin-top: 48px;
             font-size: 0.8rem;
             color: #444;
         }
 
-        .footer a {
+        footer a {
             color: #555;
             text-decoration: none;
         }
 
-        .footer a:hover {
+        footer a:hover {
             color: #888;
         }
     </style>
 </head>
 <body>
-
 <div class="container">
     <img src="avatar.jpeg" alt="Florian Reuth" class="profile-pic" fetchpriority="high">
-    <h1 class="username">Florian Reuth</h1>
-    <a href="https://github.com/florianreuth" target="_blank" class="github-link">
-        <i class="fab fa-github"></i> @florianreuth
-    </a>
+    <h1>Florian Reuth</h1>
+    <p class="bio">18 y/o · Java & Kotlin Developer · Student</p>
 
-    <p class="donate-text">Support my work</p>
+    <div class="social-links">
+        <a href="https://github.com/florianreuth" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://bsky.app/profile/florianreuth.de" target="_blank" title="Bluesky">
+            <svg viewBox="0 0 568 501" fill="currentColor" width="20" height="20">
+                <path
+                    d="M123.121 33.6637C188.241 82.5526 258.281 181.681 284 234.873C309.719 181.681 379.759 82.5526 444.879 33.6637C491.866 -1.61183 568 -28.9064 568 57.9464C568 75.2916 558.055 203.659 552.222 224.501C531.947 296.954 458.067 315.434 392.347 304.249C507.222 323.8 536.444 388.56 473.333 453.32C353.473 576.312 301.061 422.461 287.631 383.039C285.169 375.812 284.017 372.431 284 375.306C283.983 372.431 282.831 375.812 280.369 383.039C266.939 422.461 214.527 576.312 94.6667 453.32C31.5556 388.56 60.7778 323.8 175.653 304.249C109.933 315.434 36.0535 296.954 15.7778 224.501C9.94525 203.659 0 75.2916 0 57.9464C0 -28.9064 76.1345 -1.61183 123.121 33.6637Z"/>
+            </svg>
+        </a>
+        <a href="https://x.com/florianreuth" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="mailto:florian@florianreuth.de" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
 
-    <div class="card-container">
-        <a href="https://github.com/sponsors/florianreuth" class="donation-card sponsor" target="_blank">
-            <i class="fas fa-heart"></i>
-            <span class="label">GitHub Sponsors</span>
+    <p class="section-title">Support my work</p>
+    <div class="cards">
+        <a href="https://github.com/sponsors/florianreuth" class="card sponsor" target="_blank">
+            <i class="fas fa-heart"></i><span>GitHub Sponsors</span>
         </a>
-        <a href="https://ko-fi.com/florianreuth" class="donation-card kofi" target="_blank">
-            <i class="fas fa-mug-hot"></i>
-            <span class="label">Ko-fi</span>
+        <a href="https://ko-fi.com/florianreuth" class="card kofi" target="_blank">
+            <i class="fas fa-mug-hot"></i><span>Ko-fi</span>
         </a>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=S8NKFJN8E5QPJ" class="donation-card paypal"
-           target="_blank">
-            <i class="fab fa-paypal"></i>
-            <span class="label">PayPal</span>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=S8NKFJN8E5QPJ" class="card paypal" target="_blank">
+            <i class="fab fa-paypal"></i><span>PayPal</span>
         </a>
     </div>
 
-    <p class="footer">
-        © 2024-2026 · <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
-    </p>
+    <footer>© 2024-2026 · <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></footer>
 </div>
 
 </body>
